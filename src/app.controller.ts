@@ -13,6 +13,11 @@ export class AppController {
     return req.user;
   }
 
+  @Get('/protected')
+  getHello(): string {
+    return this.appService.getHello();
+  }
+
   @UseGuards(AuthenticatedGugard)
   @Get('profile')
   profile(@Request() req) {
